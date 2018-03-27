@@ -1,0 +1,26 @@
+spring:
+  profiles.active: development
+---
+spring:
+  profiles: development
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.16.9.192:3306/ARTSDEV
+    username: gemuruhgeo
+    password: Maryam@1219
+  schedule-service: http://localhost:8081
+
+server:
+  profiles: development
+  port: 8081
+
+---
+
+spring:
+  profiles: container
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+  schedule-service: schedule-service
